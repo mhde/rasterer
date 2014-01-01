@@ -24,7 +24,11 @@ public class RectangleRasterRenderer extends RasterRenderer {
     protected void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize) {
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(color);
-        graphics.fillOval(xPos, yPos, pixelSize, pixelSize);
+        drawRectangleWithBorder(graphics, xPos, yPos, pixelSize);
+    }
+
+    private void drawRectangleWithBorder(Graphics2D graphics, int xPos, int yPos, int pixelSize) {
+        graphics.fillRect(xPos + 1, yPos + 1, pixelSize - 2, pixelSize - 2);
     }
 
 }
