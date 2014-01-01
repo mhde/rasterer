@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 public abstract class RasterRenderer {
 
     protected abstract void paintImageBackground(BufferedImage image);
-    protected abstract void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize);
+    protected abstract void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize, double pixelWeight);
 
     public BufferedImage toBufferedImage(RasterImage raster, int pixelSize) {
         int imageWidth = raster.getWidth() * pixelSize;
@@ -42,7 +42,7 @@ public abstract class RasterRenderer {
 
     protected void drawRasterPixelToImage(BufferedImage image, Rasterpixel pixel, int xPos, int yPos, int pixelSize) {
         Color pixelColor = new Color(pixel.getColor());
-        drawPixel(image, pixelColor, xPos, yPos, pixelSize);
+        drawPixel(image, pixelColor, xPos, yPos, pixelSize, pixel.getWeight());
     }
 
 }

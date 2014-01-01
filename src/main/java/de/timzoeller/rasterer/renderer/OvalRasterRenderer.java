@@ -21,10 +21,14 @@ public class OvalRasterRenderer extends RasterRenderer {
         graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
     }
 
-    protected void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize) {
+    protected void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize, double pixelWeight) {
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(color);
-        graphics.fillOval(xPos, yPos, pixelSize, pixelSize);
+        
+        int drawSize = new Double(pixelWeight * pixelSize).intValue();
+        Double offset = new Double(pixelSize - drawSize) / 2;       
+        
+        graphics.fillOval(xPos + offset.intValue(), yPos + offset.intValue(), drawSize, drawSize);
     }
 
 }
