@@ -15,12 +15,6 @@ import java.awt.image.BufferedImage;
  */
 public class RectangleRasterRenderer extends RasterRenderer {
 
-    protected void paintImageBackground(BufferedImage image) {
-        Graphics2D graphics = image.createGraphics();
-        graphics.setColor(Color.WHITE);
-        graphics.fillRect(0, 0, image.getWidth(), image.getHeight());
-    }
-
     protected void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize, double pixelWeight) {
         Graphics2D graphics = image.createGraphics();
         graphics.setColor(color);
