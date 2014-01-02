@@ -22,7 +22,13 @@ public class RectangleRasterRenderer extends RasterRenderer {
         int drawSize = new Double(pixelWeight * pixelSize).intValue();
         Double offset = new Double(pixelSize - drawSize) / 2;
 
-        graphics.fillRect(xPos + offset.intValue(), yPos + offset.intValue(), drawSize, drawSize);
+        drawRectangleWithBorder(graphics, xPos, offset.intValue(), yPos, drawSize);
+    }
+
+    private void drawRectangleWithBorder(Graphics2D graphics, int xPos, int offset, int yPos, int drawSize) {
+        int BORDER = 1;
+        
+        graphics.fillRect(xPos + offset - BORDER, yPos + offset - BORDER, drawSize - 2 * BORDER, drawSize - 2 * BORDER);
     }
 
 }
