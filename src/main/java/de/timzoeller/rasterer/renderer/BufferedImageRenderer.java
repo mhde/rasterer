@@ -15,11 +15,11 @@ import java.awt.image.BufferedImage;
  *
  * @author tim
  */
-public abstract class RasterRenderer {
+public abstract class BufferedImageRenderer implements Renderer<BufferedImage> {
 
     protected abstract void drawPixel(BufferedImage image, Color color, int xPos, int yPos, int pixelSize, double pixelWeight);
 
-    public BufferedImage toBufferedImage(RasterImage raster, Color backgroundColor, int pixelSize) {
+    public BufferedImage render(RasterImage raster, Color backgroundColor, int pixelSize) {
         int imageWidth = raster.getWidth() * pixelSize;
         int imageHeight = raster.getHeight() * pixelSize;
 
